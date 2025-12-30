@@ -1,136 +1,390 @@
-<!DOCTYPE html>
+
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name – Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abijith | Portfolio</title>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <div class="contact-icons">
+</div>
 
-  <!-- ===== CSS ===== -->
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background: #f8f8f8;
-      color: #333;
-    }
-    header {
-      text-align: center;
-      background: #222;
-      color: white;
-      padding: 60px 20px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      font-size: 1.1rem;
-    }
-    nav {
-      text-align: center;
-      margin: 15px 0;
-    }
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #222;
-      font-weight: bold;
-      font-size: 0.9rem;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 6px rgba(0,0,0,0.1);
-    }
-    h2 {
-      border-bottom: 2px solid #eee;
-      padding-bottom: 8px;
-      margin-bottom: 12px;
-    }
-    ul {
-      list-style: disc inside;
-    }
-  </style>
-</head>
+/* ===== THEME VARIABLES ===== */
+:root {
+  --lavender: #8b5cf6;
+  --lavender-dark: #7c3aed;
+  --lavender-light: #ede9fe;
+  --lavender-soft: #f5f3ff;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --card-bg: #ffffff;
+  --border-soft: rgba(139,92,246,0.2);
+}
 
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, var(--lavender-soft), #ffffff);
+  color: var(--text-main);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ===== NAV ===== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 10%;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 500;
+  margin-left: 25px;
+}
+
+nav a:hover {
+  color: var(--lavender);
+}
+
+/* ===== HERO ===== */
+header.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10%;
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+}
+
+
+.hero-content {
+  background: white;
+  padding: 60px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.profile-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #7c3aed;
+}
+
+
+.hero-greeting {
+  color: var(--lavender);
+  font-weight: 600;
+  letter-spacing: 0px;
+  margin-bottom: 10px;
+}
+
+.hero-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.hero-quote {
+  font-style: italic;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+/* ===== BUTTONS ===== */
+.explore-btn {
+  padding: 14px 32px;
+  background: var(--lavender);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.explore-btn:hover {
+  background: var(--lavender-dark);
+  transform: translateY(-2px);
+}
+
+/* ===== SECTIONS ===== */
+section {
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 60px;
+  background: var(--card-bg);
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: var(--lavender);
+}
+
+/* ===== GRID ===== */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* ===== CARDS ===== */
+.list-style-card {
+  background: var(--lavender-light);
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid var(--border-soft);
+}
+
+/* ===== LISTS ===== */
+ul {
+  list-style: none;
+}
+
+li {
+  margin-bottom: 10px;
+  color: var(--text-main);
+}
+
+li::before {
+  content: "✔";
+  color: var(--lavender);
+  margin-right: 10px;
+}
+
+/* ===== ICON BUTTONS ===== */
+.btn-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--lavender-light);
+  color: var(--lavender);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.3rem;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.btn-icon:hover {
+  background: var(--lavender);
+  color: white;
+  transform: translateY(-4px);
+}
+.contact-icons {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  background-color: #ede9ff; /* light purple */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7c3aed; /* purple icon */
+  font-size: 26px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.icon-circle:hover {
+  background-color: #7c3aed;
+  color: white;
+  transform: translateY(-5px);
+}
+
+
+/* ===== TEXT ===== */
+.email-display,
+.cv-text {
+  color: var(--lavender);
+  font-weight: 500;
+}
+</style>
+</head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <h1>Your Name</h1>
-    <p>Cybersecurity Enthusiast | Web Developer</p>
-    <p>“Zero wins demand practice. More wins bring joy.”</p>
+  <header class="hero" id="hero-section">
+    <!-- <canvas id="matrix-canvas"></canvas> -->
+    <div class="hero-content">
+      <img src="https://github.com/abix4/abix4.github.io/blob/main/assets/images/profile.jpg?raw=true" alt="Abijith S" class="profile-img">
+      <h1 class="hero-name">ABIJITH S</h1>
+      <p class="hero-subtitle">CREATIVE TECHNOLOGIST | FRONT-END  DEVELOPER</p>
+      <p class="hero-quote">"Think better, take action, regret later”</p>
+      <button class="explore-btn" onclick="revealContent()">Explore Portfolio</button>
+    </div>
   </header>
 
-  <!-- NAVIGATION -->
-  <nav>
+  <nav id="main-nav">
     <a href="#about">About</a>
     <a href="#skills">Technical Skills</a>
     <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
     <a href="#resume">Resume</a>
   </nav>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      A highly motivated and creative Developer with experience in programming
-      and graphic design, blending technical proficiency with artistic vision
-      to deliver innovative and user-centric solutions.
-    </p>
-  </section>
+  <div id="main-portfolio-content">
+      <section id="about">
+        <h2>About Me</h2>
+        <p>I am a disciplined and patient individual with a strong ability to manage tasks effectively and thoughtfully.
+I have a keen interest in chess, which has enhanced my analytical thinking and strategic planning skills.
+I am passionate about creating innovative solutions and continuously improving my technical abilities.
+I aspire to pursue a career as a Data Engineer, contributing to data-driven decision-making and scalable systems.</p>
+      </section>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <h2>Technical Skills</h2>
-    <ul>
-      <li>Languages: C, Python, Java (Basic)</li>
-      <li>Web: HTML / CSS / JavaScript</li>
-      <li>Database: MySQL</li>
-      <li>Creative: Graphic Design</li>
-      <li>Security: Network Security & Threat Defense</li>
-      <li>Soft Skills: Problem Solving</li>
-    </ul>
-  </section>
+      <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="info-grid">
+            <ul class="list-style-card skills-list">
+              <li><strong>Languages:</strong> C, Python, Java (Basic)</li>
+              <li><strong>Web:</strong> HTML / CSS / JavaScript</li>
+              <li><strong>Database:</strong> MySQL</li>
+            </ul>
+            <ul class="list-style-card skills-list">
+              <li><strong>Creative:</strong> Graphic Design</li>
+              <li><strong> Strategic Problem Solver</strong> (Competitive Chess), Pattern Recognition & Logical Reasoning, Decision-Making Under Constraints
+              
+            </ul>
+        </div>
+      </section>
 
-  <!-- EDUCATION -->
-  <section id="education">
-    <h2>Education</h2>
-    <ul>
-      <li>2021–2022: 10th – Litera Valley Zee School</li>
-      <li>2023–2024: 12th – Advaith International Academy</li>
-      <li>2024–2028: B.E. CSE – Easwari Engineering College</li>
-    </ul>
-  </section>
+      <section id="education">
+        <h2>Education</h2>
+        <div class="list-container">
+            <ul class="list-style-card edu-list">
+              <li><span class="edu-year">2021 - 2022:</span> 10th std - D.A.V Public School</li>
+              <li><span class="edu-year">2023 - 2024:</span> 12th std - D.A.V Public School</li>
+              <li><span class="edu-year">2024 - 2028:</span> B.E. Computer Science and Design - Easwari Engineering College</li>
+            </ul>
+        </div>
+      </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li>Project One — Personal Portfolio with Secure UI</li>
-      <li>Project Two — Student Management System</li>
-    </ul>
-  </section>
+      <section id="certifications">
+        <h2>Certifications</h2>
+        <div class="info-grid">
+            <ul class="list-style-card cert-list">
+              <li>Mongo DB</li>
+              <li>Python Essentials (Cisco)</li>
+              <li>Artificial Intelligence (Infosys)</li>
+            </ul>
+            
+        </div>
+      </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Let’s Connect — Email or Socials!</p>
-  </section>
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="list-container">
+            <ul class="list-style-card">
+              <li><strong>Project One</strong> — Personal Portfolio with Secure UI</li>
+              <li><strong>Project Two</strong> — Hostel Management System</li>
+            </ul>
+        </div>
+      </section>
 
-  <!-- RESUME -->
-  <section id="resume">
-    <h2>Resume</h2>
-    <p><a href="resume.pdf" target="_blank">Open My Professional CV</a></p>
-  </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-container">
+            <p class="email-display">Let's Connect</p>
+            <div>
+                <a href="mailto:abisudhakar2006@gmail.com" class="btn-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/abijith-s-ab8875328/" target="_blank" class="btn-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/abix4" target="_blank" class="btn-icon" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://leetcode.com/u/abix4/" target="_blank" class="btn-icon" title="LeetCode"><i class="fas fa-code"></i></a>
+                <a href="https://www.instagram.com/_abijith_21/" target="_blank" class="btn-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+      </section>
 
+      <section id="resume">
+        <h2>Resume</h2>
+        <div class="resume-container">
+            <p class="cv-text">MY PROFESSIONAL CV</p>
+            <a href="https://abix4.github.io/ABIJITH%20S%20_%20DATA%20ENGINEER.pdf" target="_blank" class="btn-icon"><i class="fas fa-file-pdf"></i></a>
+        </div>
+      </section>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('matrix-canvas');
+    const ctx = canvas.getContext('2d');
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%\"'#&_(),.;:?!\\|{}<>[]^~";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+    function draw() {
+      ctx.fillStyle = "rgba(5, 8, 10, 0.1)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#39ff14";
+      ctx.font = fontSize + "px Courier New";
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) { drops[i] = 0; }
+        drops[i]++;
+      }
+    }
+    setInterval(draw, 33);
+
+    function revealContent() {
+        document.getElementById('main-portfolio-content').style.display = 'block';
+        document.getElementById('main-nav').style.display = 'block';
+        const hero = document.getElementById('hero-section');
+        hero.style.height = 'auto';
+        hero.style.padding = '80px 20px';
+        document.querySelector('.explore-btn').style.display = 'none';
+        window.scrollTo({
+            top: hero.offsetHeight,
+            behavior: 'smooth'
+        });
+    }
+  </script>
 </body>
 </html>
